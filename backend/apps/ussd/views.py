@@ -41,7 +41,6 @@ class ParseUSSDResponseView(APIView):
 
         raw_response = serializer.validated_data['raw_response']
         intent = serializer.validated_data['intent']
-        language = serializer.validated_data['language']
 
         parser = USSDResponseParser()
         result = parser.parse(raw_response, intent)
