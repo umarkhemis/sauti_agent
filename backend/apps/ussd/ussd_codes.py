@@ -12,7 +12,7 @@ MTN_CODES = {
     'send_money': '*165*3*{phone}*{amount}#',
     'buy_airtime_self': '*165*2*{amount}#',
     'buy_airtime_other': '*165*2*{phone}*{amount}#',
-    'buy_data': '*165*3*{phone}*{amount}#',
+    'buy_data': '*165*4*{phone}*{amount}#',
     'withdraw_money': '*165*5*{agent_code}*{amount}#',
     'pay_merchant': '*165*6*{merchant_code}*{amount}#',
 }

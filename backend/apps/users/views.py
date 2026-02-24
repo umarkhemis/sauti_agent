@@ -8,17 +8,13 @@ import uuid
 
 
 class UserProfileView(APIView):
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        if not request.user.is_authenticated:
-            return Response({'success': False, 'error': 'Authentication required'}, status=status.HTTP_401_UNAUTHORIZED)
         serializer = UserSerializer(request.user)
         return Response({'success': True, 'data': serializer.data})
 
     def patch(self, request):
-        if not request.user.is_authenticated:
-            return Response({'success': False, 'error': 'Authentication required'}, status=status.HTTP_401_UNAUTHORIZED)
         serializer = UserSerializer(request.user, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
