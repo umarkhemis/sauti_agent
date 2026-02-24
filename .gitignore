@@ -1,2 +1,4 @@
-backend/**/__pycache__
-backend/**/*.pyc
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+backend/db.sqlite3
