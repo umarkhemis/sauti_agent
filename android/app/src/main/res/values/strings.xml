@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SautiAgent</string>
+    <string name="onboarding_title">Welcome to SautiAgent</string>
+    <string name="onboarding_subtitle">Your voice-first assistant</string>
+    <string name="select_language">Select Language</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="select_telecom">Select Telecom Provider</string>
+    <string name="get_started">Get Started</string>
+    <string name="home">Home</string>
+    <string name="sms">SMS</string>
+    <string name="contacts">Contacts</string>
+    <string name="mobile_money">Mobile Money</string>
+    <string name="tap_to_speak">Tap to Speak</string>
+    <string name="listening">Listening…</string>
+    <string name="processing">Processing…</string>
+    <string name="send_sms">Send SMS</string>
+    <string name="read_sms">Read SMS</string>
+    <string name="compose_message">Compose Message</string>
+    <string name="search_contacts">Search Contacts</string>
+    <string name="check_balance">Check Balance</string>
+    <string name="send_money">Send Money</string>
+    <string name="buy_airtime">Buy Airtime</string>
+    <string name="error_network">No network connection</string>
+    <string name="error_generic">Something went wrong. Please try again.</string>
+    <string name="error_permission_audio">Microphone permission is required for voice features</string>
+</resources>
