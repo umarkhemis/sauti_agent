@@ -1,3 +1,49 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+*.sqlite3
+media/
+staticfiles/
+
+# Android / Kotlin
+android/.gradle/
+android/local.properties
+android/app/build/
+android/build/
+android/**/*.apk
+android/**/*.aab
+android/**/*.ap_
+android/**/*.dex
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/app/.cxx/
+android/keystore/
+
+# IDE
+.idea/
+*.iml
+*.iws
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+
+# Node
+node_modules/
+
+# Docker
+.dockerignore
 **/__pycache__/
 **/*.pyc
 **/*.pyo
