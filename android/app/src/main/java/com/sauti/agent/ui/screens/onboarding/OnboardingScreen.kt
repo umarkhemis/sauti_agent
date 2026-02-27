@@ -96,7 +96,6 @@ fun OnboardingScreen(
                         onClick = { viewModel.setTelecom(telecom) }
                     )
                     Text(telecom)
-                    Spacer(modifier = Modifier.height(8.dp))
                 }
             }
             Spacer(modifier = Modifier.height(32.dp))

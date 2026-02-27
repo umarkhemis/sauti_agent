@@ -1,5 +1,7 @@
 package com.sauti.agent.ui.screens.mobilemoney
 
+import android.content.Intent
+import android.net.Uri
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -35,6 +37,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.sauti.agent.ui.components.LoadingOverlay
 
@@ -46,6 +49,7 @@ fun MobileMoneyScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val snackbarHostState = remember { SnackbarHostState() }
+    val context = LocalContext.current
 
     LaunchedEffect(uiState) {
         if (uiState is MobileMoneyUiState.Error) {
@@ -129,7 +133,12 @@ fun MobileMoneyScreen(
                             OutlinedButton(onClick = viewModel::resetState) {
                                 Text("Cancel")
                             }
-                            Button(onClick = { /* Dial USSD */ }) {
+                            Button(onClick = {
+                                val intent = Intent(Intent.ACTION_DIAL).apply {
+                                    data = Uri.parse("tel:${Uri.encode(state.code)}")
+                                }
+                                context.startActivity(intent)
+                            }) {
                                 Text("Dial Now")
                             }
                         }

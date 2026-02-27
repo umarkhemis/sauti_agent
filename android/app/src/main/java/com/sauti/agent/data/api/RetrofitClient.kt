@@ -11,6 +11,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
+// 10.0.2.2 is the Android emulator's alias for the host machine's localhost.
+// For production, set BASE_URL via BuildConfig or a build flavor configuration.
 private const val BASE_URL = "http://10.0.2.2:8000/api/v1/"
 
 @Module

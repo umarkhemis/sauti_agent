@@ -55,6 +55,7 @@ class VoiceViewModel @Inject constructor(
         mediaRecorder = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             MediaRecorder(context)
         } else {
+            // MediaRecorder() constructor deprecated in API 31, but required for minSdk 26 support
             @Suppress("DEPRECATION")
             MediaRecorder()
         }.apply {
@@ -108,6 +109,7 @@ class VoiceViewModel @Inject constructor(
                         prepare()
                         start()
                         setOnCompletionListener {
+                            ttsFile.delete()
                             _uiState.value = VoiceUiState.Idle
                         }
                     }
