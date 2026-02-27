@@ -47,6 +47,7 @@ class VoiceViewModel @Inject constructor(
     private var mediaRecorder: MediaRecorder? = null
     private var audioFile: File? = null
     private var mediaPlayer: MediaPlayer? = null
+    private var currentTtsFile: File? = null
 
     fun startRecording() {
         val file = File(context.cacheDir, "voice_${System.currentTimeMillis()}.m4a")
@@ -102,6 +103,7 @@ class VoiceViewModel @Inject constructor(
                     _messages.value += ChatMessage(text, isUser = false)
                     _uiState.value = VoiceUiState.Response(text)
                     val ttsFile = File(context.cacheDir, "tts_${System.currentTimeMillis()}.mp3")
+                    currentTtsFile = ttsFile
                     ttsFile.writeBytes(body.bytes())
                     mediaPlayer?.release()
                     mediaPlayer = MediaPlayer().apply {
@@ -124,5 +126,8 @@ class VoiceViewModel @Inject constructor(
         super.onCleared()
         mediaRecorder?.release()
         mediaPlayer?.release()
+        // Clean up any orphaned TTS audio files
+        currentTtsFile?.delete()
+        audioFile?.delete()
     }
 }

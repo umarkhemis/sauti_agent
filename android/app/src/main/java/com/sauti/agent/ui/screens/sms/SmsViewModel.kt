@@ -53,7 +53,7 @@ class SmsViewModel @Inject constructor(
                     sessionId = sessionId
                 )
             ).onSuccess { _uiState.value = SmsUiState.ComposedSms(it) }
-             .onFailure { _uiState.value = SmsUiState.Error(it.message ?: "Failed to compose SMS") }
+                .onFailure { _uiState.value = SmsUiState.Error(it.message ?: "Failed to compose SMS") }
         }
     }
 
@@ -64,7 +64,7 @@ class SmsViewModel @Inject constructor(
             smsRepository.readSms(
                 ReadSmsRequest(smsContent = _smsContent.value, language = language)
             ).onSuccess { _uiState.value = SmsUiState.ReadSms(it.spokenResponse.ifEmpty { it.summary }) }
-             .onFailure { _uiState.value = SmsUiState.Error(it.message ?: "Failed to read SMS") }
+                .onFailure { _uiState.value = SmsUiState.Error(it.message ?: "Failed to read SMS") }
         }
     }
 

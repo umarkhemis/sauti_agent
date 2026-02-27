@@ -6,6 +6,7 @@ import com.sauti.agent.data.repository.UserRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,7 +24,8 @@ class HomeViewModel @Inject constructor(
 
     init {
         viewModelScope.launch {
-            if (sessionId.value.isEmpty()) {
+            // Use first() to await the actual stored value before checking to avoid race conditions
+            if (userRepository.sessionId.first().isEmpty()) {
                 userRepository.createSession()
             }
         }

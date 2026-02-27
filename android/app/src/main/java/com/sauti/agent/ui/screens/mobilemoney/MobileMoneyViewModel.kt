@@ -37,7 +37,8 @@ class MobileMoneyViewModel @Inject constructor(
                 val response = api.buildUssdCode(
                     UssdBuildRequest(intent = intent, telecom = telecom)
                 )
-                val code = response.body()?.ussdCode ?: response.body()?.code ?: ""
+                val body = response.body()
+                val code = body?.ussdCode ?: body?.code ?: ""
                 if (code.isNotEmpty()) {
                     _uiState.value = MobileMoneyUiState.UssdCode(code, intent)
                 } else {
